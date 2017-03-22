@@ -7,4 +7,9 @@
       <input class="form-control zipcode" type="text" placeholder="Enter Zipcode..." maxlength="5" [(ngModel)]="zipcode" name="zipcode" (keyup)="updateZipcode()" />
     </div>
   </form>
+
+  <div *ngIf="weatherStats">
+    {{weatherStats.temp}}
+    {{weatherCond.main}}
+  </div>
 </div>

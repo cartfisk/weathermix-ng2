@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { OpenWeatherMapService } from '../../services/openweathermap.service';
-import { Weather } from '../../../Weather';
+import { WeatherCondition } from '../../../WeatherCondition';
+import { WeatherStats } from '../../../WeatherStats';
+
 
 @Component({
   moduleId: module.id,
@@ -10,7 +12,8 @@ import { Weather } from '../../../Weather';
 })
 export class HomeComponent {
   zipcode: string;
-  weatherRes: Weather[];
+  weatherCond: WeatherCondition[];
+  weatherStats: WeatherStats[];
 
   constructor(private _openweathermapService:OpenWeatherMapService){
 
@@ -19,7 +22,9 @@ export class HomeComponent {
   updateZipcode(){
     if (this.zipcode.length >= 5){
       this._openweathermapService.getWeather(this.zipcode).subscribe(res => {
-        this.weatherRes = res;
+        console.log(res);
+        this.weatherCond = res.weather[0];
+        this.weatherStats = res.main;
       });
     }
   }

@@ -9,8 +9,8 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
 import { WeatherComponent } from './components/weather/weather.component';
 
 import { HomeComponent } from './components/pages/home.component';
-import { PlayerComponent } from './components/pages/player.component';
 import { AboutComponent } from './components/pages/about.component';
+import { PlayerComponent } from './components/pages/player.component';
 
 import { routing } from './app.routing';
 
@@ -20,8 +20,8 @@ import { routing } from './app.routing';
     PlaylistComponent,
     WeatherComponent,
     HomeComponent,
-    PlayerComponent,
-    AboutComponent
+    AboutComponent,
+    PlayerComponent
   ],
   imports: [
     routing,

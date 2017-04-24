@@ -43,11 +43,10 @@ body {
     right: 0;
     z-index: 1;
 
-    width: 100%;
+    max-width: 100%;
+    height: auto;
 
     position: fixed;
-
-    height: auto;
     min-height: 100%;
     /*background-image: url("../assets/img/home.jpg");*/
     background-position: center top no-repeat;

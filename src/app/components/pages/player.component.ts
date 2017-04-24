@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ImageComponent } from '../image/image.component';
+
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { WeatherCondition } from '../../../WeatherCondition';

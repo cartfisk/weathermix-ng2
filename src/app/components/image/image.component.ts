@@ -11,7 +11,7 @@ import { Component, Input } from '@angular/core';
     `
 })
 export class ImageComponent {
-    @Input() unsplashUrl: String;
+    @Input() unsplashUrl= "";
     defaultImage = '../../assets/img/home.jpg';
     image = this.unsplashUrl;
     offset = 100;

@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { AppComponent } from './app.component';
 
+import { ImageComponent } from './components/image/image.component';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { WeatherComponent } from './components/weather/weather.component';
 
@@ -21,13 +23,15 @@ import { routing } from './app.routing';
     WeatherComponent,
     HomeComponent,
     AboutComponent,
-    PlayerComponent
+    PlayerComponent,
+    ImageComponent
   ],
   imports: [
     routing,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    LazyLoadImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

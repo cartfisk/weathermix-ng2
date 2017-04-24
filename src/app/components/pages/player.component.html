@@ -1,33 +1,29 @@
-<div *ngIf="!unsplashObject" class="background-image" style="background-image: url(../../assets/img/home2.jpg)"></div>
-<div *ngIf="unsplashObject" class="background-image" [ngStyle]="{'background-image': 'url(' + unsplashObject.urls.full + ')'}"></div>
+<!-- <div *ngIf="!unsplashObject" class="background-image" style="background-image: url(../../assets/img/home2.jpg)"></div>
+<div *ngIf="unsplashObject" class="background-image" [ngStyle]="{'background-image': 'url(' + unsplashObject.urls.full + ')'}"></div> -->
+
+<div class="background-image" style="background-image: url(../../assets/img/home.jpg)"></div>
+
+
 <div class="content">
 
 <header>
     <img class="fadeable" class="logo-small" src="assets/img/weathermix-logo.png" />
-    <h1 class="text-center fadeable">weatherMix</h1>
-    <hr />
-    <h3 class="text-center fadeable">Find the right music for the weather.</h3>
-    <div id="padding-block-50"> </div>
 </header>
 
 <main>
     <div *ngIf="soundcloudURI">
-        <playlist [soundcloudURI]="soundcloudURI"></playlist>
+        <playlist class="fadeable" [soundcloudURI]="soundcloudURI"></playlist>
     </div>
-
-    <div id="padding-block-50"> </div>
 
     <div *ngIf="weatherCond && weatherStats" id="weather-information">
         <img class="weather-icon text-center" src="http://openweathermap.org/img/w/{{weatherCond.icon}}.png">
-        <p id="temperature" class="text-center">{{weatherStats.temp | number : '1.0-0'}}º</p>
-        <p id="condition" class="text-center">{{weatherCond.main}} in {{location}}.</p>
+        <p id="temperature" class="text-center">{{weatherStats.temp | number : '1.0-0'}}º and {{weatherCond.main | lowercase}} in {{location}}.</p>
     </div>
 
-    <div id="padding-block-50"> </div>
-    <a class="button big-button text-center" routerLink="/">Change Location</a>
+    <a class="button big-button text-center margin-top-10" routerLink="/">Change Location</a>
 </main>
 
 <footer>
-  <p class="footer text-center" id="copyright">Copyright 2017 Carter Konz, Nieky Allen, Jesse Meza, Zvonko Kavelij</p>
+  <p class="footer text-center" id="copyright">Copyright 2017 Carter Konz, Nieky Allen, Jesse Meza, Zvonko Kavelj</p>
   <a *ngIf="unsplashObject" class="footer text-center" id="photo-credit" href="{{unsplashObject.urls.full}}">Photo by {{unsplashObject.user.first_name}} {{unsplashObject.user.last_name}} at Unsplash.com </a>
 </footer>

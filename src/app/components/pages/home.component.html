@@ -1,5 +1,6 @@
-<div class="background-image" style="background-image: url(../../assets/img/home2.jpg)"></div>
+<div class="background-image" style="background-image: url(../../assets/img/home.jpg)" [lazyLoad]="lazyLoadImage"></div>
 <!-- <div *ngIf="unsplashObject" class="background-image" [ngStyle]="{'background-image': 'url(' + unsplashObject.urls.full + ')'}"></div> -->
+<!-- <image *ngIf="unsplashObject" [unsplashUrl]="unsplashObject.urls.full"></image> -->
 <div class="content" id="content-wrapper">
 
 <header>
@@ -16,7 +17,7 @@
       <div class="form-group">
         <input class="form-control zipcode" type="text" placeholder="Enter Zipcode..." maxlength="5" [(ngModel)]="zipcode" name="zipcode" (keyup)="updateZipcode()" />
         <div id="padding-block-50"> </div>
-        <button class="button big-button" id="zip-auto" onclick="locateUser()">Use My Location</button>
+        <!-- <button class="button big-button" id="zip-auto" onclick="locateUser()">Use My Location</button> -->
       </div>
     </form>
   </div>
@@ -25,9 +26,10 @@
 </main>
 
 <footer>
-  <p class="footer text-center" id="copyright">Copyright 2017 Carter Konz, Nieky Allen, Jesse Meza, Zvonko Kavelij</p>
-  <a *ngIf="!unsplashObject" class="footer text-center" id="photo-credit" href="https://unsplash.com/@timtrad/">Photo by Tim Trad at Unsplash.com </a>
-  <a *ngIf="unsplashObject" class="footer text-center" id="photo-credit" href="{{unsplashObject.urls.full}}">Photo by {{unsplashObject.user.first_name}} {{unsplashObject.user.last_name}} at Unsplash.com </a>
+  <p class="footer text-center" id="copyright">Copyright 2017 Carter Konz, Nieky Allen, Jesse Meza, Zvonko Kavelj</p>
+  <a class="footer text-center" id="photo-credit" href="https://unsplash.com/@timtrad/">Photo by Tim Trad at Unsplash.com </a>
+  <!-- <a *ngIf="!unsplashObject" class="footer text-center" id="photo-credit" href="https://unsplash.com/@timtrad/">Photo by Tim Trad at Unsplash.com </a>
+  <a *ngIf="unsplashObject" class="footer text-center" id="photo-credit" href="{{unsplashObject.urls.full}}">Photo by {{unsplashObject.user.first_name}} {{unsplashObject.user.last_name}} at Unsplash.com </a> -->
 </footer>
 </div>
 

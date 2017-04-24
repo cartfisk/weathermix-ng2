@@ -6,6 +6,7 @@ import { WeatherCondition } from '../../../WeatherCondition';
 import { WeatherStats } from '../../../WeatherStats';
 
 import { OpenWeatherMapService } from '../../services/openweathermap.service';
+import { UnsplashService } from '../../services/unsplash.service';
 import { FileService } from '../../services/file.service';
 
 
@@ -22,9 +23,11 @@ export class PlayerComponent implements OnInit{
   soundcloudURI: string;
   date: Date;
   location: string;
+  unsplashObject: any;
 
   constructor(
     private _openweathermapService:OpenWeatherMapService,
+    private _unsplashService:UnsplashService,
     private _fileService:FileService,
     private _router:Router,
     private _route:ActivatedRoute
@@ -45,6 +48,7 @@ export class PlayerComponent implements OnInit{
             this.weatherStats = res.main;
             this.getPlaylist(Number(res.weather[0].id));
             this.location = res.name;
+            this.getBackground(res.weather[0].main);
           })
       });
   }
@@ -87,6 +91,12 @@ export class PlayerComponent implements OnInit{
     this._fileService.getPlaylists().subscribe(res => {
       this.soundcloudURI = res[condition].scid[0];
     });
+  }
+
+  getBackground(condition: string){
+    this._unsplashService.getImage(condition).subscribe(res => {
+      this.unsplashObject = res;
+    })
   }
 
 }

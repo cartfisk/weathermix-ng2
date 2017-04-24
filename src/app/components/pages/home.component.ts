@@ -27,4 +27,30 @@ export class HomeComponent {
     }
   }
 
+  locateUser() {
+      if (navigator.geolocation) {
+          console.log('Geolocation supported in this browser.');
+      } else {
+          console.log('This browser does not support Geolocation services.');
+      }
+
+      var currPos, lat, long;
+      var geoSuccess = function(position) {
+          currPos = position;
+          lat = currPos.coords.latitude;
+          long = currPos.coords.longitude;
+          console.log('Lat: ' + lat +'\nLong: ' + long);
+      };
+
+      var geoError = function(error) {
+          console.log('Error occurred obtaining geolocation data. Error Code: ' + error.code);
+
+      };
+
+      navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+
+    //   var geocoder = new google.maps.Geocoder;
+
+  }
+
 }

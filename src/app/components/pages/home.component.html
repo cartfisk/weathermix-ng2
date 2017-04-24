@@ -14,6 +14,7 @@
     <form>
       <div class="form-group well">
         <input class="form-control zipcode" type="text" placeholder="Enter Zipcode..." maxlength="5" [(ngModel)]="zipcode" name="zipcode" (keyup)="updateZipcode()" />
+        <button id="zip-auto" onclick="locateUser()">Use My Location</button>
       </div>
     </form>
   </div>
@@ -30,3 +31,4 @@
 <script src="assets/scripts/jquery-ui.js"></script>
 <script src="assets/scripts/App.js"></script>
 <script src="assets/scripts/loadBackground.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq-QPrrhl3NhgVeZrCq-btAtFy4NSUrBQ&callback=initMap"></script>

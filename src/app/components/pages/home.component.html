@@ -25,7 +25,8 @@
 
 <footer>
   <p class="footer text-center" id="copyright">Copyright 2017 Carter Konz, Nieky Allen, Jesse Meza, Zvonko Kavelij</p>
-  <a class="footer text-center" id="photo-credit" href="https://unsplash.com/@timtrad/">Photo Submitted by Tim Trad at Unsplash.com </a>
+  <a *ngIf="!unsplashObject" class="footer text-center" id="photo-credit" href="https://unsplash.com/@timtrad/">Photo by Tim Trad at Unsplash.com </a>
+  <a *ngIf="unsplashObject" class="footer text-center" id="photo-credit" href="{{unsplashObject.urls.full}}">Photo by {{unsplashObject.user.first_name}} {{unsplashObject.user.last_name}} at Unsplash.com </a>
 </footer>
 </div>
 

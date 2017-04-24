@@ -12,8 +12,8 @@ import { FileService } from '../../services/file.service';
 @Component({
   moduleId: module.id,
   selector: 'player',
-  templateUrl: 'player.component.html'
-  // styleUrls: ['apphome.component.scss']
+  templateUrl: 'player.component.html',
+  styleUrls: ['player.component.scss']
 })
 export class PlayerComponent implements OnInit{
   weatherCond: WeatherCondition[];
@@ -21,6 +21,7 @@ export class PlayerComponent implements OnInit{
   weatherID: number;
   soundcloudURI: string;
   date: Date;
+  location: string;
 
   constructor(
     private _openweathermapService:OpenWeatherMapService,
@@ -43,6 +44,7 @@ export class PlayerComponent implements OnInit{
             this.weatherCond = res.weather[0];
             this.weatherStats = res.main;
             this.getPlaylist(Number(res.weather[0].id));
+            this.location = res.name;
           })
       });
   }

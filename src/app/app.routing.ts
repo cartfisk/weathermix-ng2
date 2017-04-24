@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     component: AboutComponent
   },
   {
-    path: 'player',
+    path: 'player/:zip',
     component: PlayerComponent
   }
 ];

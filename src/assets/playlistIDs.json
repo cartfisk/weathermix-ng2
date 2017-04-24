@@ -1,0 +1,32 @@
+[
+  {
+    "cond":"0",
+    "name":"Sun",
+    "scid":["317270232"]
+  },
+  {
+    "cond":"1",
+    "name":"Wind",
+    "scid":["305352447"]
+  },
+  {
+    "cond":"2",
+    "name":"Clouds",
+    "scid":["317268953"]
+  },
+  {
+    "cond":"3",
+    "name":"Rain",
+    "scid":["305352447"]
+  },
+  {
+    "cond":"4",
+    "name":"Snow",
+    "scid":["305352447"]
+  },
+  {
+    "cond":"5",
+    "name":"Clear Night",
+    "scid":["305352447"]
+  }
+]

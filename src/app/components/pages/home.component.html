@@ -1,15 +1,32 @@
-<h1 class="text-center">weatherMix</h1>
-<h3 class="text-center">Find the right music for the weather.</h3>
+<div class="background-image"></div>
+<div class="content" id="content-wrapper">
 
-<div class="container">
-  <form>
-    <div class="form-group well">
-      <input class="form-control zipcode" type="text" placeholder="Enter Zipcode..." maxlength="5" [(ngModel)]="zipcode" name="zipcode" (keyup)="updateZipcode()" />
-    </div>
-  </form>
+<header>
+    <img class="fadeable" id="logo" src="assets/img/weathermix-logo.png" />
+    <h1 class="text-center fadeable oneSec">weatherMix</h1>
+    <hr class="fadeable twoSec"/>
+    <h3 class="text-center fadeable twoSec">Find the right music for the weather.</h3>
+</header>
 
-  <div *ngIf="weatherStats">
-    {{weatherStats.temp}}
-    {{weatherCond.main}}
+<main>
+
+  <div class="container">
+    <form>
+      <div class="form-group well">
+        <input class="form-control zipcode" type="text" placeholder="Enter Zipcode..." maxlength="5" [(ngModel)]="zipcode" name="zipcode" (keyup)="updateZipcode()" />
+      </div>
+    </form>
   </div>
+
+</main>
+
+<footer>
+  <p class="footer text-center" id="copyright">Copyright 2017 Carter Konz, Nieky Allen, Jesse Meza, Zvonko Kavelij</p>
+  <a class="footer text-center" id="photo-credit" href="https://unsplash.com/@timtrad/">Photo Submitted by Tim Trad at Unsplash.com </a>
+</footer>
 </div>
+
+<script src="assets/scripts/jquery.js"></script>
+<script src="assets/scripts/jquery-ui.js"></script>
+<script src="assets/scripts/App.js"></script>
+<script src="assets/scripts/loadBackground.js"></script>

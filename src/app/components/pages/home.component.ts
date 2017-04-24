@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { OpenWeatherMapService } from '../../services/openweathermap.service';
+import { UnsplashService } from '../../services/unsplash.service';
 import { WeatherCondition } from '../../../WeatherCondition';
 import { WeatherStats } from '../../../WeatherStats';
 
@@ -13,11 +13,16 @@ import { WeatherStats } from '../../../WeatherStats';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   zipcode: string;
+  unsplashObject: any;
 
-  constructor(private _router:Router){
+  constructor(private _router:Router, private _unsplashService:UnsplashService){
 
+  }
+
+  ngOnInit(){
+    this.getBackground("weather");
   }
 
   updateZipcode(){
@@ -51,6 +56,12 @@ export class HomeComponent {
 
     //   var geocoder = new google.maps.Geocoder;
 
+  }
+
+  getBackground(condition: string){
+    this._unsplashService.getImage(condition).subscribe(res => {
+      this.unsplashObject = res;
+    })
   }
 
 }

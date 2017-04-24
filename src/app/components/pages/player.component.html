@@ -1,4 +1,5 @@
-<div class="background-image"></div>
+<div *ngIf="!unsplashObject" class="background-image" style="background-image: url(../../assets/img/home2.jpg)"></div>
+<div *ngIf="unsplashObject" class="background-image" [ngStyle]="{'background-image': 'url(' + unsplashObject.urls.full + ')'}"></div>
 <div class="content">
 
 <header>

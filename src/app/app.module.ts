@@ -11,6 +11,7 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { HomeComponent } from './components/pages/home.component';
 import { AboutComponent } from './components/pages/about.component';
 import { PlayerComponent } from './components/pages/player.component';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
 
 import { routing } from './app.routing';
 
@@ -27,9 +28,13 @@ import { routing } from './app.routing';
     routing,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+        apiKey: 'AIzaSyBq-QPrrhl3NhgVeZrCq-btAtFy4NSUrBQ'
+    }),
   ],
-  providers: [],
+  exports: [AgmCoreModule],
+  providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

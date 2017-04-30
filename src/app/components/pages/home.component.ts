@@ -5,6 +5,9 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/ro
 import { OpenWeatherMapService } from '../../services/openweathermap.service';
 import { WeatherCondition } from '../../../WeatherCondition';
 import { WeatherStats } from '../../../WeatherStats';
+import { GeocodeService } from '../../services/geocode.service';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
+import { MapsAPILoader } from 'angular2-google-maps/core';
 
 
 @Component({
@@ -13,10 +16,15 @@ import { WeatherStats } from '../../../WeatherStats';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.scss']
 })
+
+
 export class HomeComponent {
   zipcode: string;
+  latitude: number;
+  longitude: number;
 
-  constructor(private _router:Router){
+
+  constructor(private _router:Router, private _geocodeService: GeocodeService){
 
   }
 
@@ -37,9 +45,9 @@ export class HomeComponent {
       var currPos, lat, long;
       var geoSuccess = function(position) {
           currPos = position;
-          lat = currPos.coords.latitude;
-          long = currPos.coords.longitude;
-          console.log('Lat: ' + lat +'\nLong: ' + long);
+          this.latitude = currPos.coords.latitude;
+          this.longitude = currPos.coords.longitude;
+          console.log('Lat: ' + this.latitude +'\nLong: ' + this.longitude);
       };
 
       var geoError = function(error) {
@@ -48,9 +56,8 @@ export class HomeComponent {
       };
 
       navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-
-    //   var geocoder = new google.maps.Geocoder;
-
+      this.zipcode = this._geocodeService.getZip(this.latitude, this.longitude);
+      this.updateZipcode();
   }
 
 }

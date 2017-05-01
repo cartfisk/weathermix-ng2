@@ -38,20 +38,21 @@ body {
     animation-delay:2s;
 }
 
+.background-color{
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  max-width: 100%;
+  height: auto;
+
+  position: fixed;
+  min-height: 100%;
+}
+
 .background-image{
-    left: 0;
-    right: 0;
-    z-index: 1;
-
-    max-width: 100%;
-    height: auto;
-
-    position: fixed;
-    min-height: 100%;
-    /*background-image: url("../assets/img/home.jpg");*/
     background-position: center top no-repeat;
     filter: brightness(50%);
-
 }
 
 .content{
@@ -94,20 +95,6 @@ h1 {
   border: 1px solid white;
   outline: none;
   color: white;
-}
-
-.logo {
-  height: 200px;
-  margin: auto;
-  display: block;
-  padding-top: 40px;
-}
-
-.logo-small {
-  height: 100px;
-  margin: auto;
-  display: block;
-  padding-top: 20px;
 }
 
 

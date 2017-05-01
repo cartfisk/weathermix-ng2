@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.getBackground("weather");
+    // this.getBackground("weather");
   }
 
   updateZipcode(){

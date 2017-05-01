@@ -1,5 +1,7 @@
-<div *ngIf="!unsplashObject" class="background-image" style="background-image: url(../../assets/img/home2.jpg)"></div>
-<div *ngIf="unsplashObject" class="background-image" [ngStyle]="{'background-image': 'url(' + unsplashObject.urls.full + ')'}"></div>
+<!-- <div *ngIf="!unsplashObject" class="background-image" style="background-image: url(../../assets/img/home2.jpg)"></div> -->
+<div class="background-color preload-background"></div>
+<div *ngIf="weatherString" class="background-color background-image" [ngStyle]="{'background-image': 'url(../../assets/img/background/' + weatherString + '.jpg)'}"></div>
+
 
 <!-- <div class="background-image" style="background-image: url(../../assets/img/home.jpg)"></div> -->
 <!-- <image *ngIf="unsplashObject" [unsplashUrl]="unsplashObject.urls.full"></image> -->
@@ -8,7 +10,7 @@
 
 <header>
     <a routerLink="/">
-      <img class="fadeable" class="logo-small" src="assets/img/weathermix-logo.png" />
+      <img class="fadeable logo" src="assets/img/weathermix-logo.png" />
     </a>
 </header>
 
@@ -18,7 +20,7 @@
     </div>
 
     <div *ngIf="weatherCond && weatherStats" id="weather-information">
-        <img class="weather-icon text-center" src="http://openweathermap.org/img/w/{{weatherCond.icon}}.png">
+        <img class="weather-icon text-center" src="../../assets/img/weathericons/{{weatherString}}.png">
         <p id="temperature" class="text-center">{{weatherStats.temp | number : '1.0-0'}}º and {{weatherCond.main | lowercase}} in {{location}}.</p>
     </div>
 

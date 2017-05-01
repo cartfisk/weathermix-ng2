@@ -13,8 +13,14 @@ export class OpenWeatherMapService{
 
   }
 
-  getWeather(str:string){
-    this.weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?zip='+str+',us&APPID='+this.app_id+'&units=imperial';
+  getWeatherZip(zip:string){
+    this.weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&APPID='+this.app_id+'&units=imperial';
+    return this._http.get(this.weatherUrl)
+      .map(res => res.json());
+  }
+
+  getWeatherCoords(lat: string, lon: string){
+    this.weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&APPID='+this.app_id+'&units=imperial';
     return this._http.get(this.weatherUrl)
       .map(res => res.json());
   }

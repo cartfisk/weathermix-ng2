@@ -10,6 +10,7 @@ import { WeatherStats } from '../../../WeatherStats';
 import { OpenWeatherMapService } from '../../services/openweathermap.service';
 import { UnsplashService } from '../../services/unsplash.service';
 import { FileService } from '../../services/file.service';
+import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -24,13 +25,14 @@ export class PlayerComponent implements OnInit{
   weatherID: number;
   soundcloudURI: string;
   date: Date;
-  location: string;
+  location: any;
   unsplashObject: any;
 
   constructor(
     private _openweathermapService:OpenWeatherMapService,
     private _unsplashService:UnsplashService,
     private _fileService:FileService,
+    private _dataService:DataService,
     private _router:Router,
     private _route:ActivatedRoute
   ){
@@ -40,19 +42,27 @@ export class PlayerComponent implements OnInit{
   ngOnInit(){
 
     this.date = new Date();
+    this.location = this._dataService.getLocation();
 
-    this._route.params
-      .map(params => params['zip'])
-      .subscribe((zip) => {
-        this._openweathermapService.getWeather(zip)
-          .subscribe(res => {
-            this.weatherCond = res.weather[0];
-            this.weatherStats = res.main;
-            this.getPlaylist(Number(res.weather[0].id));
-            this.location = res.name;
-            this.getBackground(res.weather[0].main);
-          })
-      });
+    if (this.location.zip){
+      this._openweathermapService.getWeatherZip(this.location.zip)
+        .subscribe(res => {
+          this.weatherCond = res.weather[0];
+          this.weatherStats = res.main;
+          this.getPlaylist(Number(res.weather[0].id));
+          this.location = res.name;
+          this.getBackground(res.weather[0].main);
+        })
+    } else {
+      this._openweathermapService.getWeatherCoords(this.location.coords.lat, this.location.coords.lon)
+        .subscribe(res => {
+          this.weatherCond = res.weather[0];
+          this.weatherStats = res.main;
+          this.getPlaylist(Number(res.weather[0].id));
+          this.location = res.name;
+          this.getBackground(res.weather[0].main);
+        })
+    }
   }
 
   getPlaylist(weatherID){

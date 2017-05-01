@@ -15,10 +15,10 @@
     <form>
       <div class="form-group">
         <input class="form-control zipcode" type="text" placeholder="Enter Zipcode..." maxlength="5" [(ngModel)]="zipcode" name="zipcode" (keyup)="updateZipcode()" />
-        <div id="padding-block-50"> </div>
-        <!-- <button class="button big-button" id="zip-auto" onclick="locateUser()">Use My Location</button> -->
       </div>
     </form>
+    <div id="padding-block-50"> </div>
+    <button class="button big-button" id="zip-auto" (click)="locateUser()">Use My Location</button>
   </div>
   <div id="padding-block-150"> </div>
 
